@@ -3,7 +3,7 @@ var headers = {};
 var url = "http://localhost:3000";
 
 function init() {
-    if(localStorage.getItem("token")) {
+    if(!localStorage.getItem("token")) {
         headers = {
             headers: {
                 'Authorization': "bearer " + localStorage.getItem("token")
