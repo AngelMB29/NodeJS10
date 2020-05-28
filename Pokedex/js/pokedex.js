@@ -6,7 +6,7 @@ function init() {
     if(localStorage.getItem("token")) {
         headers = {
             headers: {
-                'Autorization': "bearer " + localStorage.getItem("token")
+                'Authorization': "bearer " + localStorage.getItem("token")
             }
         }
         loadPokemon();
