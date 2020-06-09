@@ -9,7 +9,7 @@ function init() {
         document.querySelector('.btn-primary').addEventListener('click', login);
     }
     else {
-        window.location.href = "registros.html";
+        window.location.href = "pokedex.html";
     }
 }
 
@@ -27,7 +27,7 @@ function login() {
     }).then(function (res) {
         if(res.data.code === 200) {
             localStorage.setItem("token", res.data.message);
-            window.location.href = "registros.html";
+            window.location.href = "pokedex.html";
         }
         else {
             alert("Usuario y/o contraseña incorrectos");
