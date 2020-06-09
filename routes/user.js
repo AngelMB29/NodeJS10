@@ -1,14 +1,14 @@
 const express =  require("express");
 const jwt = require('jsonwebtoken'); 
 const user = express.Router();
-const sql = require('../config/database');
+const db = require('../config/database');
 
 user.post("/", async (req, res, next)=>{
     const {user_name, user_mail, user_password } = req.body
 
     if (user_name && user_mail && user_password){
         let query = "INSERT INTO user (user_name, user_mail, user_password) ";
-        query += `VALUES ('${user_name}', '${user_mail}', user_password)`;
+        query += `VALUES ('${user_name}', '${user_mail}', '${user_password}')`;
         const rows = await db.query(query);
 
         if (rows.affectedRows == 1){
