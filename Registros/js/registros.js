@@ -29,7 +29,7 @@ function loadEmployees() {
 function displayEmployes(employees) {
     var body = document.querySelector("body");
     for(var i = 0; i < employees.length; i++) {
-        body.innerHTML += `<h3>${employees[i]-emp_name}</h3>`;
+        body.innerHTML += `<h3>${employees[i].emp_name}</h3>`;
     }
 }
 
