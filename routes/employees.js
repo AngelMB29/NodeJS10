@@ -23,9 +23,9 @@ employees.delete("/:id([0-9]{1,3})", async (req, res, next) => {
     const rows = await db.query(query);
 
     if(rows.affectedRows == 1){
-        return res.status(200).jason({ code: 200, message: "Empleado borrado correctamente"});
+        return res.status(200).json({ code: 200, message: "Empleado borrado correctamente"});
     }
-    return res.status(404).jason({ code: 404, message: "Empleado no encontrado"});
+    return res.status(404).json({ code: 404, message: "Empleado no encontrado"});
 });
 
 employees.put("/:id([0-9]{1,3})", async (req, res, next) => {
@@ -69,9 +69,9 @@ employees.get('/:id([0-9]{1,3})', async (req, res, next) => {
     const id = req.params.id;
     if(id >= 1 && id <= 722) {
         const emps = await db.query("SELECT * FROM employees WHERE emp_id=" + id + ";");
-        return res.status(200).jason({code: 200, message: emps });
+        return res.status(200).json({code: 200, message: emps });
     }
-    return res.status(404).send({code: 404, message: "Pokemon no encontrado"});
+    return res.status(404).send({code: 404, message: "Empleado no encontrado"});
 });
  
 employees.get('/:name([A-Za-z]+)', async (req, res, next) => {
