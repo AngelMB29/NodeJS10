@@ -32,3 +32,4 @@ function displayEmployes(employees) {
         body.innerHTML += `<h3>${employees[i]-emp_name}</h3>`;
     }
 }
+
