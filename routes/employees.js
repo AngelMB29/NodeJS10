@@ -25,13 +25,13 @@ employees.delete("/:id([0-9]{1,3})", async (req, res, next) => {
     if(rows.affectedRows == 1){
         return res.status(200).json({ code: 200, message: "Empleado borrado correctamente"});
     }
-    return res.status(404).json({ code: 404, message: "Empleado no encontrado"});
+    return res.status(444).json({ code: 444, message: "Empleado no encontrado"});
 });
 
 employees.put("/:id([0-9]{1,3})", async (req, res, next) => {
     const { emp_name, emp_last_name, emp_phone, emp_mail, emp_address} = req.body;
 
-    if(emp_name && emp_last_name && emp_phone && emp_mail, emp_address){
+    if(emp_name && emp_last_name && emp_phone && emp_mail && emp_address){
         let query = `UPDATE employees SET emp_name='${emp_name}', emp_last_name='${emp_last_name}',`;
         query += `emp_phone=${emp_phone}, emp_mail='${emp_mail}', emp_address='${emp_address}' WHERE emp_id=${req.params.id}`;
 
@@ -76,8 +76,8 @@ employees.get('/:id([0-9]{1,3})', async (req, res, next) => {
  
 employees.get('/:name([A-Za-z]+)', async (req, res, next) => {
     const name = req.params.name;
-    const emps = await db.query("SELECT * FROM employees WHERE emp_name=" + name + ";");
-    if(emps.lenght > 0) {
+    const emps = await db.query(`SELECT * FROM employees WHERE emp_name= '${name}' ;`);
+    if(emps.lenght !=0) {
         return res.status(200).json({ code: 200, message: emps });
     }
     return res.status(404).send({code: 404, message: "Empleado no encontrado"});

@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros</title>
+    <title>Registros de datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/registros.js"></script>
+
 </head>
 <body>
     <h1>Bienvenido a los Registros de empleados</h1>
+    <div class="d-flex justify-content-between">
+        <button onclick= "location.href='./agregar.html'" class="btn-agregar">Agregar</button>
+        <button onclick= "location.href='./modificar.html'" class="btn-modificar">Modificar</button>
+        <button onclick= "location.href='./eliminar.html'" class="btn-eliminar">Eliminar</button>
+        <button onclick= "location.href='./buscar.html'" class="btn-buscar">Buscar</button>
+    </div>
 </body>
 </html>
